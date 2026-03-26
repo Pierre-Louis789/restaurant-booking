@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ restaurant.name }}</h1>
+<p>{{ restaurant.description }}</p>
+
+<p><strong>Address:</strong> {{ restaurant.address }}</p>
+<p><strong>Opening Hours:</strong> {{ restaurant.opening_time }} - {{ restaurant.closing_time }}</p>
+<p><strong>Total Covers:</strong> {{ restaurant.total_covers }}</p>
+
+<a href="/" class="btn btn-secondary mt-3">Back to Home</a>
+{% endblock %}
