@@ -6,4 +6,4 @@ def home(request):
 
 def restaurant_detail(request):
     restaurant = Restaurant.objects.first()
-    return render(request, 'restaurant_detail.html', {'restaurant': restaurant})git add .
+    return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
