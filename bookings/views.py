@@ -34,6 +34,13 @@ def create_booking(request):
         'restaurants': restaurants
     })
 
+def restaurant_list(request):
+    restaurants = Restaurant.objects.all()
+    return render(request, 'restaurant_list.html', {'restaurants': restaurants})
+
+def restaurant_detail(request, id):
+    restaurant = Restaurant.objects.get(id=id)
+    return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
 
 @login_required
 def my_bookings(request):

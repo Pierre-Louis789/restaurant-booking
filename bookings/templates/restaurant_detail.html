@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Our Different Restaurants</h1>
+<h2>{{ restaurant.name }}</h2>
 
-{% for restaurant in restaurants %}
-    <h2>{{ restaurant.name }}</h2>
-    <p>{{ restaurant.description }}</p>
-    <p><strong>Address:</strong> {{ restaurant.address }}</p>
-    <p><strong>Opening Hours:</strong> {{ restaurant.opening_time }} - {{ restaurant.closing_time }}</p>
-    <p><strong>Total Covers:</strong> {{ restaurant.total_covers }}</p>
-    <hr>
-{% endfor %}
+<p>{{ restaurant.description }}</p>
+<p><strong>Address:</strong> {{ restaurant.address }}</p>
+<p><strong>Opening Hours:</strong> {{ restaurant.opening_time }} - {{ restaurant.closing_time }}</p>
+<p><strong>Total Covers:</strong> {{ restaurant.total_covers }}</p>
+
+<a href="{% url 'restaurant_list' %}" class="btn btn-secondary">Back to Restaurants</a>
+<a href="/book/" class="btn btn-primary">Book a Table</a>
 
 {% endblock %}
