@@ -13,6 +13,7 @@
             <th>Table</th>
             <th>Party Size</th>
             <th>Status</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
             <td>{{ booking.table }}</td>
             <td>{{ booking.party_size }}</td>
             <td>{{ booking.status }}</td>
+            <td><a href="{% url 'edit_booking' booking.id %}" class="btn btn-sm btn-warning">Edit</a></td>
         </tr>
         {% endfor %}
     </tbody>
