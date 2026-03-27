@@ -19,7 +19,7 @@ def create_booking(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.user = request.user  # assign logged-in user
+            booking.user = request.user 
             booking.save()
             messages.success(request, "Your booking has been created!")
             return redirect('home')
@@ -32,3 +32,18 @@ def create_booking(request):
 def my_bookings(request):
     bookings = Booking.objects.filter(user=request.user).order_by('date', 'time')
     return render(request, 'my_bookings.html', {'bookings': bookings})
+
+@login_required
+def edit_booking(request, booking_id):
+    booking = Booking.objects.get(id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your booking has been updated!")
+            return redirect('my_bookings')
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(request, 'edit_booking.html', {'form': form, 'booking': booking})
