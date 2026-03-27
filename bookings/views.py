@@ -3,6 +3,8 @@ from .models import Restaurant
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import BookingForm
+from django.contrib.auth.decorators import login_required
+
 
 
 def home(request):
@@ -25,3 +27,8 @@ def create_booking(request):
         form = BookingForm()
 
     return render(request, 'create_booking.html', {'form': form})
+
+@login_required
+def my_bookings(request):
+    bookings = Booking.objects.filter(user=request.user).order_by('date', 'time')
+    return render(request, 'my_bookings.html', {'bookings': bookings})
