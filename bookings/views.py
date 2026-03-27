@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import Booking
 from .forms import BookingForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
+from .forms import SignUpForm
 
 
 
@@ -42,6 +44,20 @@ def restaurant_list(request):
 def restaurant_detail(request, id):
     restaurant = Restaurant.objects.get(id=id)
     return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # auto-login after registration
+            messages.success(request, "Registration successful! Welcome.")
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'register.html', {'form': form})
+
 
 @login_required
 def my_bookings(request):

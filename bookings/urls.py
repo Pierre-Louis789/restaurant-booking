@@ -11,4 +11,5 @@ urlpatterns = [
     path('restaurants/', views.restaurant_list, name='restaurant_list'),
     path('restaurants/<int:id>/', views.restaurant_detail, name='restaurant_detail'),
     path('booking-confirmation/<int:booking_id>/', views.booking_confirmation, name='booking_confirmation'),
+    path('register/', views.register, name='register'),
 ]
