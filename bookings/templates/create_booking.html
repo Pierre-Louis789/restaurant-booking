@@ -5,7 +5,35 @@
 
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <label for="restaurant">Restaurant</label>
+    <select name="restaurant" onchange="this.form.submit()">
+        <option value="">Select a restaurant</option>
+        {% for restaurant in restaurants %}
+            <option value="{{ restaurant.id }}"
+                {% if form.data.restaurant == restaurant.id|stringformat:"s" %}
+                    selected
+                {% endif %}
+            >
+                {{ restaurant.name }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label for="table">Table</label>
+    {{ form.table }}
+
+    <label for="date">Date</label>
+    {{ form.date }}
+
+    <label for="time">Time</label>
+    {{ form.time }}
+
+    <label for="party_size">Party Size</label>
+    {{ form.party_size }}
+
+    <label for="special_requests">Special Requests</label>
+    {{ form.special_requests }}
 
     <button type="submit" class="btn btn-primary">Submit Booking</button>
 </form>

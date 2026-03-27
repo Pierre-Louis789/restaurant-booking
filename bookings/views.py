@@ -12,22 +12,28 @@ def home(request):
     return render(request, 'home.html')
 
 def restaurant_detail(request):
-    restaurant = Restaurant.objects.first()
+    restaurant = Restaurant.objects.all()
     return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
 
 def create_booking(request):
+    restaurants = Restaurant.objects.all()
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.user = request.user 
+            booking.user = request.user
             booking.save()
             messages.success(request, "Your booking has been created!")
             return redirect('home')
     else:
         form = BookingForm()
 
-    return render(request, 'create_booking.html', {'form': form})
+    return render(request, 'create_booking.html', {
+        'form': form,
+        'restaurants': restaurants
+    })
+
 
 @login_required
 def my_bookings(request):
