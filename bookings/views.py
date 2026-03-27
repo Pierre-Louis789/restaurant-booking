@@ -16,12 +16,11 @@ def create_booking(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-        booking = form.save(commit=False)
-        booking.user = request.user
-        booking.save()
-        messages.success(request, "Your booking has been created!")
-        return redirect('home')
-    
+            booking = form.save(commit=False)
+            booking.user = request.user  # assign logged-in user
+            booking.save()
+            messages.success(request, "Your booking has been created!")
+            return redirect('home')
     else:
         form = BookingForm()
 
