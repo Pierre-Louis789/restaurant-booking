@@ -34,10 +34,11 @@ class Booking(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     table = models.ForeignKey(Table, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateField()
+    
     time = models.TimeField()
     party_size = models.IntegerField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
-    special_requests = models.TextField(blank=True)
+    special_requests = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.date} at {self.time}"

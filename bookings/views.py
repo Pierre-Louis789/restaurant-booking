@@ -25,9 +25,10 @@ def create_booking(request):
             booking.user = request.user
             booking.save()
             messages.success(request, "Your booking has been created!")
-            return redirect('home')
+            return redirect('booking_confirmation', booking_id=booking.id)
     else:
         form = BookingForm()
+        print(form.errors)
 
     return render(request, 'create_booking.html', {
         'form': form,
@@ -72,3 +73,8 @@ def delete_booking(request, booking_id):
         return redirect('my_bookings')
 
     return render(request, 'delete_booking.html', {'booking': booking})
+
+@login_required
+def booking_confirmation(request, booking_id):
+    booking = Booking.objects.get(id=booking_id, user=request.user)
+    return render(request, 'booking_confirmation.html', {'booking': booking})

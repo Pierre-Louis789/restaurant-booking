@@ -6,19 +6,18 @@
 <form method="POST">
     {% csrf_token %}
 
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|join:", " }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <label for="restaurant">Restaurant</label>
-    <select name="restaurant" onchange="this.form.submit()">
-        <option value="">Select a restaurant</option>
-        {% for restaurant in restaurants %}
-            <option value="{{ restaurant.id }}"
-                {% if form.data.restaurant == restaurant.id|stringformat:"s" %}
-                    selected
-                {% endif %}
-            >
-                {{ restaurant.name }}
-            </option>
-        {% endfor %}
-    </select>
+    {{ form.restaurant }}
 
     <label for="table">Table</label>
     {{ form.table }}
@@ -29,7 +28,7 @@
     <label for="time">Time</label>
     {{ form.time }}
 
-    <label for="party_size">Party Size</label>
+    <label for="party_size">How Many People</label>
     {{ form.party_size }}
 
     <label for="special_requests">Special Requests</label>

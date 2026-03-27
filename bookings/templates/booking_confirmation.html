@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Booking Confirmed</h2>
+
+<p>Your booking has been successfully created. Here are the details:</p>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Restaurant:</strong> {{ booking.restaurant.name }}</li>
+    <li class="list-group-item"><strong>Table:</strong> {{ booking.table.table_number }} ({{ booking.table.capacity }} seats)</li>
+    <li class="list-group-item"><strong>Date:</strong> {{ booking.date }}</li>
+    <li class="list-group-item"><strong>Time:</strong> {{ booking.time }}</li>
+    <li class="list-group-item"><strong>Party Size:</strong> {{ booking.party_size }}</li>
+    {% if booking.special_requests %}
+        <li class="list-group-item"><strong>Special Requests:</strong> {{ booking.special_requests }}</li>
+    {% endif %}
+</ul>
+
+<a href="/my-bookings/" class="btn btn-primary">View My Bookings</a>
+<a href="/book/" class="btn btn-secondary">Make Another Booking</a>
+
+{% endblock %}
