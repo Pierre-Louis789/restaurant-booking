@@ -7,7 +7,8 @@ from .forms import BookingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from .forms import SignUpForm
-
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 
 def home(request):
@@ -57,6 +58,10 @@ def register(request):
     else:
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
+
+def custom_logout(request):
+    logout(request)  # fully clears ALL sessions
+    return redirect('home')
 
 
 @login_required

@@ -14,5 +14,5 @@ urlpatterns = [
     path('booking-confirmation/<int:booking_id>/', views.booking_confirmation, name='booking_confirmation'),
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='home', http_method_names=['get', 'post']), name='logout'),
+    path('logout/', views.custom_logout, name='logout'),
 ]

@@ -3,5 +3,5 @@
 {% block content %}
 <h1>Welcome to the Restaurant Booking System</h1>
 <p>Book your table easily and quickly.</p>
-<a href="/restaurant/" class="btn btn-primary">View Restaurant</a>
+<a href="{% url 'restaurant_list' %}" class="btn btn-primary">View Restaurants</a>
 {% endblock %}
