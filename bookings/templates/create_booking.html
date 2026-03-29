@@ -1,40 +1,64 @@
 {% extends 'base.html' %}
 
+{% load form_filters %}
+
 {% block content %}
-<h2>Book a Table</h2>
+<div class="container" style="max-width: 600px;">
 
-<form method="POST">
-    {% csrf_token %}
+    <h2 class="text-center mb-4">Book a Table</h2>
 
-    {% if form.errors %}
-        <div class="alert alert-danger">
-            <ul>
-                {% for field, errors in form.errors.items %}
-                    <li>{{ field }}: {{ errors|join:", " }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+    <div class="card shadow-sm p-4">
 
-    <label for="restaurant">Restaurant</label>
-    {{ form.restaurant }}
+        <form method="POST">
+            {% csrf_token %}
 
-    <label for="table">Table</label>
-    {{ form.table }}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        {% for field, errors in form.errors.items %}
+                            <li><strong>{{ field|capfirst }}:</strong> {{ errors|join:", " }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
 
-    <label for="date">Date</label>
-    {{ form.date }}
+            <div class="mb-3">
+                <label class="form-label">Restaurant</label>
+                {{ form.restaurant|add_class:"form-select" }}
+            </div>
 
-    <label for="time">Time</label>
-    {{ form.time }}
+            <div class="mb-3">
+                <label class="form-label">Table</label>
+                {{ form.table|add_class:"form-select" }}
+            </div>
 
-    <label for="party_size">How Many People</label>
-    {{ form.party_size }}
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                {{ form.date|add_class:"form-control" }}
+            </div>
 
-    <label for="special_requests">Special Requests</label>
-    {{ form.special_requests }}
+            <div class="mb-3">
+                <label class="form-label">Time</label>
+                {{ form.time|add_class:"form-control" }}
+            </div>
 
-    <button type="submit" class="btn btn-primary">Submit Booking</button>
-</form>
+            <div class="mb-3">
+                <label class="form-label">How Many People</label>
+                {{ form.party_size|add_class:"form-control" }}
+            </div>
 
+            <div class="mb-3">
+                <label class="form-label">Special Requests</label>
+                {{ form.special_requests|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">
+                Submit Booking
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 {% endblock %}

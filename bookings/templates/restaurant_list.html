@@ -1,20 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Our Restaurants</h2>
+<div class="container">
+    <h1 class="mb-4 text-center">Discover Restaurants</h1>
 
-<div class="row">
-    {% for restaurant in restaurants %}
-        <div class="col-md-4 mb-4">
-            <div class="card p-3">
-                <h4>{{ restaurant.name }}</h4>
-                <p>{{ restaurant.description }}</p>
-                <a href="{% url 'restaurant_detail' restaurant.id %}" class="btn btn-primary">
-                    View Details
-                </a>
+    <div class="row g-4">
+        {% for restaurant in restaurants %}
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">
+
+                
+                {% if restaurant.image %}
+                <img src="{{ restaurant.image.url }}" class="card-img-top" alt="{{ restaurant.name }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+                     class="card-img-top"
+                     alt="Restaurant"
+                     style="height: 200px; object-fit: cover;">
+                {% endif %}
+
+                
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ restaurant.name }}</h5>
+
+                    {% if restaurant.cuisine %}
+                    <p class="text-muted mb-1">{{ restaurant.cuisine }}</p>
+                    {% endif %}
+
+                    <p class="card-text text-muted" style="font-size: 0.9rem;">
+                        {{ restaurant.description|truncatewords:18 }}
+                    </p>
+
+                    <a href="{% url 'restaurant_detail' restaurant.id %}" class="btn btn-outline-primary w-100 mt-2">
+                        View Details
+                    </a>
+                </div>
+
             </div>
         </div>
-    {% endfor %}
+        {% empty %}
+        <p class="text-center">No restaurants available.</p>
+        {% endfor %}
+    </div>
 </div>
-
 {% endblock %}

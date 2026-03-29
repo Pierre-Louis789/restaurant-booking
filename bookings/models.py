@@ -9,6 +9,9 @@ class Restaurant(models.Model):
     opening_time = models.TimeField()
     closing_time = models.TimeField()
     total_covers = models.IntegerField(default=50)
+    image = models.ImageField(upload_to='restaurants/', blank=True, null=True)
+    description = models.TextField(blank=True)
+    cuisine = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name

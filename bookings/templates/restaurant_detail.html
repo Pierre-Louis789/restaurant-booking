@@ -1,14 +1,70 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{ restaurant.name }}</h2>
+<div class="container">
 
-<p>{{ restaurant.description }}</p>
-<p><strong>Address:</strong> {{ restaurant.address }}</p>
-<p><strong>Opening Hours:</strong> {{ restaurant.opening_time }} - {{ restaurant.closing_time }}</p>
-<p><strong>Total Covers:</strong> {{ restaurant.total_covers }}</p>
+    
+    <div class="position-relative mb-4">
+        {% if restaurant.image %}
+            <img src="{{ restaurant.image.url }}"
+                 class="img-fluid rounded shadow-sm"
+                 alt="{{ restaurant.name }}"
+                 style="height: 250px; width: 100%; object-fit: cover;">
+        {% else %}
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+                 class="img-fluid rounded shadow-sm"
+                 alt="Restaurant"
+                 style="height: 250px; width: 100%; object-fit: cover;">
+        {% endif %}
 
-<a href="{% url 'restaurant_list' %}" class="btn btn-secondary">Back to Restaurants</a>
-<a href="/book/" class="btn btn-primary">Book a Table</a>
+       
+        <div style="
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.35);
+            border-radius: 6px;">
+        </div>
 
+        
+        <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+            <h1 class="fw-bold">{{ restaurant.name }}</h1>
+
+            {% if restaurant.cuisine %}
+            <p class="mb-0" style="font-size: 1.1rem;">
+                {{ restaurant.cuisine }}
+            </p>
+            {% endif %}
+        </div>
+    </div>
+
+    
+    <div class="card shadow-sm p-4 mb-5">
+
+        
+        <h5 class="fw-bold">
+            <i class="bi bi-geo-alt-fill text-primary"></i> Address
+        </h5>
+        <p>{{ restaurant.address }}</p>
+
+        
+        <h5 class="fw-bold mt-4">
+            <i class="bi bi-clock-fill text-primary"></i> Opening Hours
+        </h5>
+        <p>{{ restaurant.opening_time|time:"H:i" }} — {{ restaurant.closing_time|time:"H:i" }}</p>
+
+        
+        {% if restaurant.description %}
+        <h5 class="fw-bold mt-4">About</h5>
+        <p>{{ restaurant.description }}</p>
+        {% endif %}
+
+      
+        <div class="text-center mt-4">
+            <a href="/book/" class="btn btn-primary btn-lg">Book a Table</a>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}

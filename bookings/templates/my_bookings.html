@@ -1,39 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>My Bookings</h2>
+<div class="container" style="max-width: 800px;">
 
-{% if bookings %}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Restaurant</th>
-            <th>Table</th>
-            <th>Party Size</th>
-            <th>Status</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for booking in bookings %}
-        <tr>
-            <td>{{ booking.date }}</td>
-            <td>{{ booking.time }}</td>
-            <td>{{ booking.restaurant.name }}</td>
-            <td>{{ booking.table }}</td>
-            <td>{{ booking.party_size }}</td>
-            <td>{{ booking.status }}</td>
-            <td><a href="{% url 'edit_booking' booking.id %}" class="btn btn-sm btn-warning">Edit</a></td>
-            <td><a href="{% url 'delete_booking' booking.id %}" class="btn btn-sm btn-danger">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p>You have no bookings yet.</p>
-{% endif %}
+    <h2 class="text-center mb-4">My Bookings</h2>
 
+    {% if bookings %}
+        <div class="row g-4">
+
+            {% for booking in bookings %}
+            <div class="col-12">
+                <div class="card shadow-sm p-3">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0">{{ booking.restaurant.name }}</h5>
+                        <span class="badge bg-primary">{{ booking.date }} at {{ booking.time }}</span>
+                    </div>
+
+                    <hr>
+
+                    <p class="mb-1"><strong>Table:</strong> {{ booking.table.table_number }} ({{ booking.table.capacity }} seats)</p>
+                    <p class="mb-1"><strong>Party Size:</strong> {{ booking.party_size }}</p>
+
+                    {% if booking.special_requests %}
+                    <p class="mb-1"><strong>Special Requests:</strong> {{ booking.special_requests }}</p>
+                    {% endif %}
+
+                    <div class="mt-3 d-flex gap-2">
+                        <a href="{% url 'edit_booking' booking.id %}" class="btn btn-outline-primary btn-sm w-50">Edit</a>
+                        <a href="{% url 'delete_booking' booking.id %}" class="btn btn-outline-danger btn-sm w-50">Cancel</a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+        <div class="text-center mt-5">
+            <p class="text-muted">You have no bookings yet.</p>
+            <a href="/book/" class="btn btn-primary">Make a Booking</a>
+        </div>
+    {% endif %}
+
+</div>
 {% endblock %}

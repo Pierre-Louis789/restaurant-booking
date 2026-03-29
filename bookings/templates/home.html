@@ -1,7 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome to the Restaurant Booking System</h1>
-<p>Book your table easily and quickly.</p>
-<a href="{% url 'restaurant_list' %}" class="btn btn-primary">View Restaurants</a>
+
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm" style="background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1'); background-size: cover; background-position: center;">
+    <div class="container py-5 text-white" style="background: rgba(0,0,0,0.5); border-radius: 10px;">
+        <h1 class="display-4 fw-bold">Find Your Next Great Meal</h1>
+        <p class="lead">
+            Explore top restaurants and reserve your table in seconds.
+        </p>
+        <a href="{% url 'restaurant_list' %}" class="btn btn-primary btn-lg">
+            Browse Restaurants
+        </a>
+    </div>
+</div>
+
+
+<div class="container text-center mb-5">
+    <h2 class="mb-4">Why Book With Us?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Handpicked Restaurants</h4>
+            <p>Only the best local spots, curated for quality and atmosphere.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Instant Booking</h4>
+            <p>Reserve your table in just a few clicks — no phone calls needed.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Reliable & Easy</h4>
+            <p>Manage your bookings anytime from your personal dashboard.</p>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

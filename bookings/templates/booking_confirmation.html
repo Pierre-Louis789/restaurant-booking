@@ -1,22 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Booking Confirmed</h2>
+<div class="container" style="max-width: 600px;">
 
-<p>Your booking has been successfully created. Here are the details:</p>
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Booking Confirmed</h2>
+        <p class="text-muted">Your table has been successfully reserved.</p>
+    </div>
 
-<ul class="list-group mb-3">
-    <li class="list-group-item"><strong>Restaurant:</strong> {{ booking.restaurant.name }}</li>
-    <li class="list-group-item"><strong>Table:</strong> {{ booking.table.table_number }} ({{ booking.table.capacity }} seats)</li>
-    <li class="list-group-item"><strong>Date:</strong> {{ booking.date }}</li>
-    <li class="list-group-item"><strong>Time:</strong> {{ booking.time }}</li>
-    <li class="list-group-item"><strong>Party Size:</strong> {{ booking.party_size }}</li>
-    {% if booking.special_requests %}
-        <li class="list-group-item"><strong>Special Requests:</strong> {{ booking.special_requests }}</li>
-    {% endif %}
-</ul>
+    <div class="card shadow-sm p-4 mb-4">
 
-<a href="/my-bookings/" class="btn btn-primary">View My Bookings</a>
-<a href="/book/" class="btn btn-secondary">Make Another Booking</a>
+        <h5 class="fw-bold mb-3 text-center">{{ booking.restaurant.name }}</h5>
 
+        <ul class="list-group mb-3">
+            <li class="list-group-item">
+                <strong>Table:</strong> {{ booking.table.table_number }} ({{ booking.table.capacity }} seats)
+            </li>
+            <li class="list-group-item">
+                <strong>Date:</strong> {{ booking.date }}
+            </li>
+            <li class="list-group-item">
+                <strong>Time:</strong> {{ booking.time }}
+            </li>
+            <li class="list-group-item">
+                <strong>Party Size:</strong> {{ booking.party_size }}
+            </li>
+
+            {% if booking.special_requests %}
+            <li class="list-group-item">
+                <strong>Special Requests:</strong> {{ booking.special_requests }}
+            </li>
+            {% endif %}
+        </ul>
+
+        <div class="text-center">
+            <a href="/my-bookings/" class="btn btn-primary w-100 mb-2">View My Bookings</a>
+            <a href="/book/" class="btn btn-outline-secondary w-100">Make Another Booking</a>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
