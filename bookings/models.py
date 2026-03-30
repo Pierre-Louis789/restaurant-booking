@@ -35,9 +35,8 @@ class Booking(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    table = models.ForeignKey(Table, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateField()
-    
+    table = models.ForeignKey(Table, null=True, blank=True, on_delete=models.SET_NULL)
     time = models.TimeField()
     party_size = models.IntegerField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
