@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center section">
+    <h1 class="mb-3">Something Went Wrong</h1>
+    <p class="mb-4">We’re working to fix the issue. Please try again later.</p>
+
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="bi bi-arrow-left"></i> Return Home
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center section">
+    <h1 class="mb-3">Page Not Found</h1>
+    <p class="mb-4">Looks like this page doesn’t exist or has been moved.</p>
+
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="bi bi-house"></i>Back to Home</a>
+</div>
+{% endblock %}

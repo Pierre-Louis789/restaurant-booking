@@ -15,7 +15,6 @@
         --card-radius: 10px;
         --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-
 body {
         background-color: var(--bg-light);
         color: var(--text-dark);
@@ -154,6 +153,44 @@ form .mb-3 {
 
 .btn + .btn {
     margin-left: 0.5rem;
+}
+
+/* Media Query */
+@media (max-width: 576px) {
+
+    h1 {font-size: 1.8rem;}
+    h2 {font-size: 1.5rem;}
+    h3 {font-size: 1.25rem;}
+
+    .card {
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    .btn + .btn {
+        margin-left: 0;
+    } 
+    .navbar .navbar-text {
+        margin-bottom: 0.5rem;
+    }
+    footer a {
+        margin: 0 10px;
+        font-size: 1.3rem;
+    }
+    .list-group-item {
+        padding: 0.9rem 1rem;
+    }
+    form .form-control,
+    form .form-select {
+        padding: 0.55rem 0.8rem;
+    }
 }
 
     </style>
