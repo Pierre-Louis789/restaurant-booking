@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Restaurant Booking</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -22,6 +23,27 @@ body {
     background: linear-gradient(135deg, #f7e7ce 0%, #d6b48c 40%, #8c5e3c 100%);
 }
 
+.navbar {
+    background: rgba(0, 0, 0, 0.55) !important; /* darker, visible */
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.navbar .nav-link,
+.navbar-brand,
+.navbar-text {
+    color: #ffffff !important; /* white text so it's readable */
+}
+
+.navbar .nav-link:hover {
+    color: #ffb74d !important; /* your accent color */
+}
+
+.navbar .btn {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
 
 .btn-primary {
         background-color: var(--primary);
@@ -39,10 +61,13 @@ body {
     }
 
 .card {
-        border-radius: var(--card-radius);
-        box-shadow: var(--card-shadow);
-        border: none;
-    }
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);            
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    padding: 1.5rem;
+}
+
 
 a {
         color: var(--primary);
@@ -142,6 +167,18 @@ a:hover {
     border: 1px solid #e5e7eb;
 }
 
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.15rem rgba(26, 115, 232, 0.25);
+}
 
 form .form-control,
 form .form-select {
@@ -266,6 +303,6 @@ form .mb-3 {
 
     </div>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
