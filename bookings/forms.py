@@ -7,10 +7,10 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['restaurant', 'date', 'time', 'party_size', 'special_requests']
-        
-    date = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date'})
-    )
+        widgets = {
+            'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
