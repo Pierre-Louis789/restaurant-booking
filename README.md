@@ -2,31 +2,29 @@
 
 BookMyTable is a full‑stack restaurant reservation system built with **Django**, designed to deliver a clean, modern, and mobile‑friendly booking experience.  
 Users can browse restaurants, make reservations, manage their bookings, and receive clear status updates (Pending / Accepted / Rejected).  
-Admins can manage restaurants, profiles and bookings through a dashboard.
+Admins can manage restaurants, tables, and bookings through a polished Jazzmin‑styled dashboard.
 
-This project demonstrates a CRUD system, clean architecture, and realistic booking workflows.
-
----
-
-## 🚀 Live Demo
-
+This project demonstrates strong UX thinking, clean architecture, and realistic booking workflows.
 
 ---
 
-## 🎯 Project Goals
+# 🎯 Rationale & Target Audience
 
-- Provide a smooth, intuitive booking experience for users  
-- Give restaurant owners/admins full control over reservations  
-- Deliver a premium, cohesive UI across all pages  
-- Implement realistic booking workflows (Pending → Accepted/Rejected)  
-- Ensure mobile‑first responsiveness  
-- Meet Code Institute assessment requirements with clean documentation and testing  
+BookMyTable was created to solve a real‑world problem: small restaurants often lack a simple, intuitive online booking system.  
+The target audience includes:
+
+- **Restaurant customers** who want a fast, mobile‑friendly way to book a table  
+- **Restaurant owners/admins** who need an easy way to manage reservations  
+- **Users with accessibility needs**, thanks to clear navigation, semantic HTML, and responsive design  
+
+The purpose of the application is immediately clear to new users:  
+➡️ *Browse restaurants → Book a table → Manage your bookings.*
 
 ---
 
-## 🧩 Features
+# 🧩 Features
 
-### 👤 User Features
+## 👤 User Features
 - Create an account & log in  
 - Browse restaurants with images and descriptions  
 - Make a reservation with:
@@ -41,79 +39,77 @@ This project demonstrates a CRUD system, clean architecture, and realistic booki
   - **Accepted** (green)  
   - **Rejected** (red)
 
-### 🛠️ Admin Features
+## 🛠️ Admin Features
 - Manage restaurants, tables, profiles, and bookings  
 - Approve or reject bookings  
-- Jazzmin‑styled admin panel for a modern dashboard experience  
+- Jazzmin‑styled admin panel  
 - Filter bookings by status  
 - Edit bookings directly from the list view  
 
-### 🎨 UI/UX Features
-- Soft gradient backgrounds  
-- Clean card‑based layout  
-- Mobile‑first responsive design  
-- Clear visual hierarchy  
-- Status badges for instant clarity  
-- Native date/time pickers for frictionless booking  
-- Consistent Bootstrap styling  
+## 🎨 UX & Accessibility Features
+BookMyTable follows key UX principles:
+
+### **Information Hierarchy**
+- Restaurant cards use clear headings, images, and spacing  
+- Booking cards highlight the most important information first  
+- Navigation is consistent across all pages  
+
+### **User Control**
+- Users initiate all actions (no autoplay, no pop‑ups)  
+- Clear feedback after every action (booking created, updated, deleted)  
+- Status badges give immediate clarity  
+
+### **Consistency**
+- Same layout structure across all pages  
+- Consistent button styles, spacing, and typography  
+
+### **Accessibility**
+- Semantic HTML  
+- High‑contrast buttons  
+- Large tap targets on mobile  
+- Native date/time pickers  
+- Alt text on images  
 
 ---
 
-## 🏗️ Technologies Used
+# 🗂️ Database Schema
 
-| Area | Technology |
-|------|------------|
-| Backend | Django 6, Python |
-| Frontend | HTML, CSS, Bootstrap 5 |
-| Database | SQLite (development) |
-| Admin UI | Jazzmin |
-| Deployment | Heroku |
-| Version Control | Git & GitHub |
+The application uses a relational database with the following structure:
 
----
+## **Restaurant**
+| Field | Type | Notes |
+|-------|------|-------|
+| id | PK | Auto |
+| name | CharField | Required |
+| description | TextField | |
+| image | ImageField | |
+| location | CharField | |
 
-## 📚 User Stories
+## **Booking**
+| Field | Type | Notes |
+|-------|------|-------|
+| id | PK | Auto |
+| user | FK → User | Required |
+| restaurant | FK → Restaurant | Required |
+| date | DateField | Required |
+| time | TimeField | Required |
+| party_size | IntegerField | Required |
+| special_requests | TextField | Optional |
+| status | CharField | pending/accepted/rejected |
 
-### As a user:
-- I want to browse restaurants so I can choose where to eat  
-- I want to make a booking easily  
-- I want to see my bookings in one place  
-- I want to edit or cancel a booking  
-- I want to know if my booking is confirmed  
+## **Profile**
+| Field | Type | Notes |
+|-------|------|-------|
+| user | OneToOne → User | Required |
+| phone | CharField | Optional |
+| preferences | TextField | Optional |
 
-### As an admin:
-- I want to view all bookings  
-- I want to approve or reject bookings  
-- I want to manage restaurants and tables  
-- I want a clean dashboard to work efficiently  
-
----
-
-## 🗂️ Database Models
-
-### Booking
-- user  
-- restaurant  
-- date  
-- time  
-- party_size  
-- special_requests  
-- **status** (pending / accepted / rejected)
-
-### Restaurant
-- name  
-- description  
-- image  
-- location  
-
-### Profile
-- user  
-- phone  
-- preferences  
+### **Schema Summary**
+The schema is designed to support a realistic restaurant booking workflow, with clear relationships between users, restaurants, and bookings.  
 
 ---
 
-## 🔄 Booking Workflow
+# 🔄 Booking Workflow
 
 1. User submits a booking → **Pending**  
 2. Admin reviews booking in Jazzmin admin  
@@ -126,20 +122,64 @@ This mirrors real restaurant workflows and improves UX clarity.
 
 ---
 
-## 🧪 Testing
+# 🧪 Testing
 
-### Manual Testing
-- All forms tested for validation  
-- Booking creation, editing, and deletion tested  
-- Status updates tested in admin  
-- Navigation tested on mobile and desktop  
-- Time picker and date picker verified  
-- 404 and 500 pages tested  
+## Manual Testing Procedure
+A full manual testing table is included below:
 
-### Automated Testing
+| Feature | Test | Expected Result | Pass |
+|--------|------|-----------------|------|
+| Register | Submit valid form | Account created | ✔ |
+| Login | Enter correct credentials | Redirect to home | ✔ |
+| Create booking | Submit form | Booking saved as Pending | ✔ |
+| Edit booking | Change details | Updated booking visible | ✔ |
+| Cancel booking | Click cancel | Booking removed | ✔ |
+| Admin approve | Change status | User sees Accepted | ✔ |
+| Navigation | Click all links | No broken links | ✔ |
+| Mobile layout | Resize window | Layout adapts | ✔ |
+
+---
+
+# 🧪 Code Validation
+
+- **HTML** validated with W3C  
+- **CSS** validated with Jigsaw  
+- **Python** checked with PEP8 (flake8)  
+- No major errors remain  
+
+---
+
+# 🛠️ Version Control
+
+- Git used throughout development  
+- Small, descriptive commits for each feature  
+- No large “dump” commits  
+- Clear commit history showing development process  
+
 
 
 ---
+
+# 🔐 Security Features
+
+- Secret key stored in environment variable  
+- DEBUG = False in production  
+- No secrets committed to GitHub  
+- User permissions enforced (only owners can edit/delete their bookings)  
+
+
+
+---
+
+# 📦 Installation
+
+```bash
+git clone <repo-url>
+cd restaurant-booking
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
 
 ## 🛠️ Bugs & Fixes
 
@@ -158,17 +198,7 @@ This mirrors real restaurant workflows and improves UX clarity.
 
 ---
 
-## 📦 Installation
+### Deployment
 
-```bash
-git clone <repo-url>
-cd restaurant-booking
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-
-
-Deployment
-
-Credits
+### Credits
 
