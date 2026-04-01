@@ -14,10 +14,6 @@ from django.shortcuts import redirect
 def home(request):
     return render(request, 'home.html')
 
-def restaurant_detail(request):
-    restaurant = Restaurant.objects.all()
-    return render(request, 'restaurant_detail.html', {'restaurant': restaurant})
-
 def restaurant_list(request):
     restaurants = Restaurant.objects.all()
     return render(request, 'restaurant_list.html', {'restaurants': restaurants})
