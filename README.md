@@ -25,6 +25,7 @@ The purpose of the application is immediately clear to new users:
 # 🧩 Features
 
 ## 👤 User Features
+
 - Create an account & log in  
 - Browse restaurants with images and descriptions  
 - Make a reservation with:
@@ -40,6 +41,7 @@ The purpose of the application is immediately clear to new users:
   - **Rejected** (red)
 
 ## 🛠️ Admin Features
+
 - Manage restaurants, tables, profiles, and bookings  
 - Approve or reject bookings  
 - Jazzmin‑styled admin panel  
@@ -47,6 +49,7 @@ The purpose of the application is immediately clear to new users:
 - Edit bookings directly from the list view  
 
 ## 🎨 UX & Accessibility Features
+
 BookMyTable follows key UX principles:
 
 ### **Information Hierarchy**
@@ -69,6 +72,55 @@ BookMyTable follows key UX principles:
 - Large tap targets on mobile  
 - Native date/time pickers  
 - Alt text on images  
+
+---
+
+# Screenshots
+
+### Home Page:
+
+![Homepage Screenshot](docs/screenshots/home-page.png)
+
+### Restaurant list:
+
+![Restaurant List Screenshot](docs/screenshots/restaurant-list.png)
+
+### Booking From:
+
+![Booking Form Screenshot](docs/screenshots/booking-form.png)
+
+### My bookings Dashboard:
+
+![My Bookings Screenshot](docs/screenshots/my-bookings.png)
+
+### Admin Panel (Jazzmin):
+
+![Admin Panel Screenshot](docs/screenshots/admin-panel.png)
+
+---
+
+# WIREFRAME 
+
+Below is a simple wireframe representing the core user flow.
+```
+[ Homepage ]
+      |
+      v
+[ Restaurant List ]
+      |
+      v
+[ Restaurant Detail ]
+      |
+      v
+[ Booking Form ]
+      |
+      v
+[ Booking Confirmation ]
+      |
+      v
+[ My Bookings Dashboard ]
+```
+
 
 ---
 
@@ -142,10 +194,12 @@ A full manual testing table is included below:
 
 # 🧪 Code Validation
 
-- **HTML** validated with W3C  
-- **CSS** validated with Jigsaw  
-- **Python** checked with PEP8 (flake8)  
-- No major errors remain  
+## **HTML** validated with W3C  
+
+##  **CSS** validated with Jigsaw  
+
+### Note: Bootstrap 5.3.2 CDN triggers several false‑positive errors in the W3C CSS validator due to modern CSS features not yet supported by the validator. These errors do not affect functionality and are unrelated to project code
+ 
 
 ---
 
