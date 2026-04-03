@@ -5,17 +5,10 @@
 
     
     <div class="position-relative mb-4">
-        {% if restaurant.image %}
-            <img src="{{ restaurant.image.url }}"
-                 class="img-fluid rounded shadow-sm"
-                 alt="{{ restaurant.name }}"
-                 style="height: 250px; width: 100%; object-fit: cover;">
-        {% else %}
-            <img src="{% static restaurant.static_image %}"
-                 class="img-fluid rounded shadow-sm"
-                 alt="{{ restaurant.name }}"
-                 style="height: 250px; width: 100%; object-fit: cover;">
-        {% endif %}
+     <img src="{% static restaurant.static_image %}"
+     class="img-fluid rounded shadow-sm"
+     alt="{{ restaurant.name }}"
+     style="height: 250px; width: 100%; object-fit: cover;">
 
        
         <div style="

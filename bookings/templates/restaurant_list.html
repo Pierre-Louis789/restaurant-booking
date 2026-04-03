@@ -7,20 +7,11 @@
     <div class="row g-4">
         {% for restaurant in restaurants %}
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">
-
-                
-                {% if restaurant.image %}
-    <img src="{{ restaurant.image.url }}"
-         class="card-img-top"
-         alt="{{ restaurant.name }}"
-         style="height: 200px; object-fit: cover;">
-{% else %}
-    <img src="{% static restaurant.static_image %}"
-         class="card-img-top"
-         alt="{{ restaurant.name }}"
-         style="height: 200px; object-fit: cover;">
-{% endif %}
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">            
+        <img src="{% static restaurant.static_image %}"
+        class="card-img-top"
+        alt="{{ restaurant.name }}"
+        style="height: 200px; object-fit: cover;">
 
                 
 <div class="card-body">
