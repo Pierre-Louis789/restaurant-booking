@@ -265,10 +265,14 @@ A full manual testing process was carried out on both the development and deploy
 
 ## ✔ 6. Code Validation
 
-- **HTML** validated using W3C  
+- **HTML** validated using W3C 
+![HTML Screenshot](docs/screenshots/html-screenshot.png)
+
 - **CSS** validated using Jigsaw  
-- **Python** checked with PEP8 standards  
-- **No major issues found**
+![Css Validator Screenshot](docs/screenshots/screenshot-css-validator.png)
+
+- **Python :**   
+ **Mamual Testing, no major issues found**
 
 > **Note:** Bootstrap 5.3.2 CDN triggers false‑positive CSS validator errors due to modern CSS features not yet supported by the validator. These do not affect project code.
 
