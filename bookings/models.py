@@ -9,7 +9,7 @@ class Restaurant(models.Model):
     opening_time = models.TimeField()
     closing_time = models.TimeField()
     total_covers = models.IntegerField(default=50)
-    image = models.ImageField(upload_to='restaurant_images/', default='restaurant_images/default.jpg')
+    static_image = models.CharField(max_length=200, blank=True)
     cuisine = models.CharField(max_length=100, blank=True)
 
     def __str__(self):

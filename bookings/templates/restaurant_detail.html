@@ -11,9 +11,9 @@
                  alt="{{ restaurant.name }}"
                  style="height: 250px; width: 100%; object-fit: cover;">
         {% else %}
-            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+            <img src="{% static restaurant.static_image %}"
                  class="img-fluid rounded shadow-sm"
-                 alt="Restaurant"
+                 alt="{{ restaurant.name }}"
                  style="height: 250px; width: 100%; object-fit: cover;">
         {% endif %}
 
