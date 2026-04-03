@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 <div class="container">
     <h1 class="mb-4 text-center">Discover Restaurants</h1>
@@ -7,26 +8,28 @@
     <div class="row g-4">
         {% for restaurant in restaurants %}
         <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">            
-        <img src="{% static restaurant.static_image %}"
-        class="card-img-top"
-        alt="{{ restaurant.name }}"
-        style="height: 200px; object-fit: cover;">
+            <div class="card h-100 border-0 shadow-sm" style="border-radius: 12px; overflow: hidden;">
 
-                
-<div class="card-body">
-    <h5 class="card-title fw-bold">{{ restaurant.name }}</h5>
-    {% if restaurant.cuisine %}
-    <p class="text-muted mb-1">{{ restaurant.cuisine }}</p>
-    {% endif %}
-    <p class="card-text text-muted" style="font-size: 0.9rem;">
-    {{ restaurant.description|truncatewords:18 }}
-    </p>
-    <a href="{% url 'restaurant_detail' restaurant.id %}" class="btn btn-outline-primary w-100 mt-2">
-    View Details</a>
-</div>
+                <img src="{% static restaurant.static_image %}"
+                     class="card-img-top"
+                     alt="{{ restaurant.name }}"
+                     style="height: 200px; object-fit: cover;">
 
-</div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ restaurant.name }}</h5>
+                    {% if restaurant.cuisine %}
+                    <p class="text-muted mb-1">{{ restaurant.cuisine }}</p>
+                    {% endif %}
+                    <p class="card-text text-muted" style="font-size: 0.9rem;">
+                        {{ restaurant.description|truncatewords:18 }}
+                    </p>
+                    <a href="{% url 'restaurant_detail' restaurant.id %}"
+                       class="btn btn-outline-primary w-100 mt-2">
+                        View Details
+                    </a>
+                </div>
+
+            </div>
         </div>
         {% empty %}
         <p class="text-center">No restaurants available.</p>
