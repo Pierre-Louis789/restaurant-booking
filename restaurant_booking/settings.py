@@ -118,7 +118,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files
+# Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -132,7 +132,6 @@ STATICFILES_DIRS = [
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
-
 
 
 # MEDIA SETTINGS
