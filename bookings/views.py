@@ -1,4 +1,5 @@
-from django.shortcuts import render
+
+
 from .models import Restaurant
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -8,15 +9,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from .forms import SignUpForm
 from django.contrib.auth import logout
-from django.shortcuts import redirect
 
 
 def home(request):
     return render(request, 'home.html')
 
+
 def restaurant_list(request):
     restaurants = Restaurant.objects.all()
     return render(request, 'restaurant_list.html', {'restaurants': restaurants})
+
 
 def restaurant_detail(request, id):
     restaurant = Restaurant.objects.get(id=id)
@@ -35,6 +37,7 @@ def register(request):
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
 
+
 def custom_logout(request):
     logout(request)  # fully clears ALL sessions
     return redirect('home')
@@ -44,6 +47,7 @@ def custom_logout(request):
 def my_bookings(request):
     bookings = Booking.objects.filter(user=request.user).order_by('date', 'time')
     return render(request, 'my_bookings.html', {'bookings': bookings})
+
 
 @login_required
 def edit_booking(request, booking_id):
@@ -60,6 +64,7 @@ def edit_booking(request, booking_id):
 
     return render(request, 'edit_booking.html', {'form': form, 'booking': booking})
 
+
 @login_required
 def delete_booking(request, booking_id):
     booking = Booking.objects.get(id=booking_id, user=request.user)
@@ -70,6 +75,7 @@ def delete_booking(request, booking_id):
         return redirect('my_bookings')
 
     return render(request, 'delete_booking.html', {'booking': booking})
+
 
 @login_required
 def booking_confirmation(request, booking_id):

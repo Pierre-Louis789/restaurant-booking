@@ -35,20 +35,20 @@
     <div class="card shadow-sm p-4 mb-5">
 
         
-        <h5 class="fw-bold">
+        <h2 class="fw-bold">
             <i class="bi bi-geo-alt-fill text-primary"></i> Address
-        </h5>
+        </h2>
         <p>{{ restaurant.address }}</p>
 
         
-        <h5 class="fw-bold mt-4">
+        <h2 class="fw-bold mt-4">
             <i class="bi bi-clock-fill text-primary"></i> Opening Hours
-        </h5>
+        </h2>
         <p>{{ restaurant.opening_time|time:"H:i" }} — {{ restaurant.closing_time|time:"H:i" }}</p>
 
         
         {% if restaurant.description %}
-        <h5 class="fw-bold mt-4">About</h5>
+        <h2 class="fw-bold mt-4">About</h2>
         <p>{{ restaurant.description }}</p>
         {% endif %}
 
