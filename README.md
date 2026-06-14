@@ -773,16 +773,6 @@ After deployment, the following checks were performed:
 
 The deployed version matches the development version in functionality and layout.
 
----
-
-## ✔ 7. Live Site & Repository
-
-**Live Site:**  
-https://your-render-url.onrender.com
-
-**GitHub Repository:**  
-https://github.com/your-username/restaurant-booking
-
 
 ---
 
@@ -857,6 +847,18 @@ python manage.py runserver
 ### Admin theme conflict
 - Removed Django Suit (incompatible with Django 6)  
 - Installed Jazzmin instead  
+
+### OneDrive file corruption & disappearing README
+- OneDrive repeatedly deleted README.md, templates, and other files
+- Caused Git to mark files as “deleted” unexpectedly
+- Project was moved to a safe, non‑synced directory `(C:\Dev)`
+- This permanently resolved file loss and corruption
+
+### Norton Antivirus false‑positive (README quarantined)
+- Norton flagged README.md as `MD:HttpRequest‑inf [Susp] `
+- Automatically quarantined the file on save
+- Restored the file via Norton Security History
+- Added an exclusion rule to prevent future false detections
 
 ---
 
