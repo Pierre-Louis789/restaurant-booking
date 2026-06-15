@@ -12,7 +12,6 @@ from django.contrib.auth import logout
 from django.http import HttpResponse
 
 
-
 def home(request):
     return render(request, 'home.html')
 
@@ -32,7 +31,7 @@ def register(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # auto-login after registration
+            login(request, user)  
             messages.success(request, "Registration successful! Welcome.")
             return redirect('home')
     else:
@@ -47,7 +46,7 @@ def seed(request):
 
 
 def custom_logout(request):
-    logout(request)  # fully clears ALL sessions
+    logout(request)  
     return redirect('home')
 
 
