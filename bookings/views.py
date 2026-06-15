@@ -40,6 +40,7 @@ def register(request):
 
 
 def seed(request):
+    print("SEED VIEW CALLED")
     from restaurant_booking.create_default_restaurants import run
     run()
     return HttpResponse("Seeded!")

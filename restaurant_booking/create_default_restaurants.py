@@ -1,9 +1,9 @@
-from bookings.models import Restaurant
 from datetime import time
 
 
 def run():
-    
+    from bookings.models import Restaurant
+
     if Restaurant.objects.count() == 0:
 
         Restaurant.objects.create(
