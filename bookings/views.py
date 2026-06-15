@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from .forms import SignUpForm
 from django.contrib.auth import logout
+from django.http import HttpResponse
 
 
 def home(request):
@@ -36,6 +37,12 @@ def register(request):
     else:
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
+
+
+def seed(request):
+    from create_default_restaurants import run
+    run()
+    return HttpResponse("Seeded!")
 
 
 def custom_logout(request):
