@@ -15,7 +15,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.custom_logout, name='logout'),
-    path("quick-seed/", views.quick_seed),
-
-
+    path("quick-seed/", views.quick_seed, name="quick_seed"),
 ]

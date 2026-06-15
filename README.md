@@ -15,7 +15,9 @@ The project demonstrates:
 
 ---
 
-## 📑 Table of Contents
+### 📑 Table of Contents
+
+
 1. [Rationale & Target Audience](#rationale--target-audience)
 2. [User Stories](#user-stories)
 3. [Features](#features)
@@ -37,7 +39,7 @@ The project demonstrates:
    - [Lighthouse Testing](#lighthouse-testing)
    - [Overall Testing Conclusion](#7-overall-testing-conclusion)
 9. [Deployment](#deployment)
-10. [Security Features](#security-features)
+10. [Database Seeding & Deployment Context](#database-seeding--deployment-context)
 11. [Future Enhancements](#future-enhancements)
 12. [Version Control](#version-control)
 13. [Installation](#installation)
@@ -46,11 +48,11 @@ The project demonstrates:
 16. [Credits](#credits)
 17. [Live Demo & Project Links](#live-demo--project-links)
 
----
+
 
 ---
 
-# 🎯 Rationale & Target Audience
+#  Rationale & Target Audience
 
 BookMyTable was developed to address a common real‑world problem: many small and medium‑sized restaurants lack a simple, accessible, and mobile‑friendly online booking system. Existing solutions are often expensive, overly complex, or not optimised for users with accessibility needs.
 
@@ -60,7 +62,7 @@ The application provides a clear, intuitive workflow:
 
 This purpose is immediately evident to new users, fulfilling key UX and accessibility requirements.
 
-## 👥 Target Audience
+##  Target Audience
 
 ### **1. Restaurant Customers**
 - Want a fast, easy way to book a table online  
@@ -83,7 +85,7 @@ This purpose is immediately evident to new users, fulfilling key UX and accessib
   - Keyboard‑friendly navigation  
   - Alt text on all images  
 
-## 🎯 Why This Project Was Built
+##  Why This Project Was Built
 
 BookMyTable demonstrates:
 
@@ -106,12 +108,12 @@ This section satisfies by clearly explaining:
 
 ---
 
-# 🧑‍🤝‍🧑 User Stories
+#  User Stories
 
 The following user stories guided the design and development of BookMyTable.  
 They ensure the application meets real user needs, supports accessibility, and provides a clear, intuitive booking workflow.
 
-## 👤 User Stories — Customers
+##  User Stories — Customers
 
 - **As a user, I want to create an account** so I can manage my bookings securely.
 - **As a user, I want to log in and log out easily** so I can access my dashboard safely.
@@ -122,7 +124,7 @@ They ensure the application meets real user needs, supports accessibility, and p
 - **As a user, I want to edit or cancel my bookings** so I can update my plans if needed.
 - **As a user, I want the site to be responsive and accessible** so I can use it comfortably on any device.
 
-## 🛠️ User Stories — Admins
+##  User Stories — Admins
 
 - **As an admin, I want to log into a secure dashboard** so I can manage the system.
 - **As an admin, I want to add, edit, or delete restaurants** so I can keep the platform up to date.
@@ -130,7 +132,7 @@ They ensure the application meets real user needs, supports accessibility, and p
 - **As an admin, I want to approve or reject bookings** so I can control restaurant availability.
 - **As an admin, I want a clean, modern interface** so I can work quickly and avoid errors.
 
-## ♿ Accessibility‑Focused User Stories
+##  Accessibility‑Focused User Stories
 
 - **As a user with accessibility needs, I want clear headings and labels** so I can navigate the site easily.
 - **As a user with low vision, I want high‑contrast buttons and readable text** so I can interact with the interface comfortably.
@@ -141,11 +143,11 @@ They ensure the application meets real user needs, supports accessibility, and p
 
 ---
 
-# 🧩 Features
+#  Features
 
 BookMyTable includes a full set of user‑facing and admin‑facing features designed to create a smooth, accessible, and intuitive booking experience. The platform follows UX best practices, provides clear user feedback, and supports all required CRUD operations.
 
-## 👤 User Features
+##  User Features
 
 - **Account Management**
   - Register, log in, and log out securely
@@ -174,7 +176,7 @@ BookMyTable includes a full set of user‑facing and admin‑facing features des
   - High‑contrast buttons and clear focus states
   - Alt text on all images
 
-## 🛠️ Admin Features
+##  Admin Features
 
 - **Restaurant Management**
   - Add, edit, or delete restaurants
@@ -190,7 +192,7 @@ BookMyTable includes a full set of user‑facing and admin‑facing features des
   - Jazzmin‑styled interface for a modern, clean experience
   - Filters for booking status and restaurant
 
-## 🎨 UX & Accessibility Features
+##  UX & Accessibility Features
 
 BookMyTable follows key UX and accessibility principles:
 
@@ -253,7 +255,7 @@ BookMyTable follows key UX and accessibility principles:
 
 ---
 
-# 🧱 Wireframe & User Flow
+#  Wireframe & User Flow
 
 The following wireframe illustrates the core user journey within BookMyTable.  
 It shows how users move through the application from browsing restaurants to managing their bookings.  
@@ -279,7 +281,7 @@ This simple flow also demonstrates that the purpose of the application is immedi
 [ My Bookings Dashboard ]
 ```
 
-### 🧭 User Flow Summary
+###  User Flow Summary
 
 - **Homepage** introduces the platform and provides clear navigation.
 - **Restaurant List** displays all available restaurants with images and descriptions.
@@ -296,19 +298,19 @@ This flow ensures a smooth, intuitive experience.
 
 
 
-# 🗂️ Database Schema
+#  Database Schema
 
 BookMyTable uses a relational database designed to support a realistic restaurant booking workflow.  
 The schema is normalised, efficient, and clearly defines the relationships between users, restaurants, and bookings.
 
-## 📌 Entity Relationship Diagram (ERD)
+##  Entity Relationship Diagram (ERD)
 
 ![ERD Diagram](docs/screenshots/erd-diagram.png)
 
 
 ---
 
-## 🔗 Cardinality
+##  Cardinality
 
 Cardinality describes how many records in one table relate to records in another table.  
 It is essential for designing a clear, efficient relational database and is a key part of the assessment criteria.
@@ -357,7 +359,7 @@ This keeps the schema simple, efficient, and perfectly suited to the project’s
 
 ---
 
-## 🧠 Why Cardinality Matters in This Project
+##  Why Cardinality Matters in This Project
 
 Understanding cardinality ensures:
 
@@ -370,7 +372,7 @@ Understanding cardinality ensures:
 
 ---
 
-## 🏛️ Models Overview
+##  Models Overview
 
 ### **User (Django Auth Model)**
 Provided by Django.  
@@ -415,7 +417,7 @@ Extends the User model with optional extra information.
 
 ---
 
-## 🎯 Why This Schema Fits the Purpose
+##  Why This Schema Fits the Purpose
 
 This schema was designed to support a real restaurant booking workflow:
 
@@ -429,11 +431,11 @@ This schema was designed to support a real restaurant booking workflow:
 
 ---
 
-# 🔄 Booking Workflow
+#  Booking Workflow
 
 BookMyTable follows a clear and intuitive booking workflow that mirrors how real restaurants handle reservations. This ensures users always understand what stage their booking is at and what actions they can take next.
 
-## 🧭 How the Booking Process Works
+##  How the Booking Process Works
 
 1. **User selects a restaurant**  
    From the restaurant list or detail page, the user chooses where they want to book.
@@ -467,7 +469,7 @@ BookMyTable follows a clear and intuitive booking workflow that mirrors how real
 
 ---
 
-## 📘 Workflow Summary
+##  Workflow Summary
 
 **User → Booking Form → Pending → Admin Review → Accepted/Rejected → User Dashboard**
 
@@ -481,13 +483,13 @@ This workflow provides:
 
 ---
 
-# 🧪 Testing
+#  Testing
 
 A full manual testing process was carried out on both the development and deployed versions of the application. All core features, views, forms, and CRUD operations were tested to ensure correct behaviour, responsiveness, and data integrity.
 
 ---
 
-## ✔ 1. User Journey Testing
+##  1. User Journey Testing
 
 | Feature | Test Performed | Expected Result | Outcome |
 | --- | --- | --- | --- |
@@ -499,7 +501,7 @@ A full manual testing process was carried out on both the development and deploy
 
 ---
 
-## ✔ 2. Restaurant Functionality Testing
+##  2. Restaurant Functionality Testing
 
 | Feature | Test Performed | Expected Result | Outcome |
 |--------|----------------|----------------|---------|
@@ -509,7 +511,7 @@ A full manual testing process was carried out on both the development and deploy
 
 ---
 
-## ✔ 3. Booking System Testing
+##  3. Booking System Testing
 
 | Feature | Test Performed | Expected Result | Outcome |
 |--------|----------------|----------------|---------|
@@ -521,7 +523,7 @@ A full manual testing process was carried out on both the development and deploy
 
 ---
 
-## ✔ 4. Authentication & Permissions Testing
+##  4. Authentication & Permissions Testing
 
 | Scenario | Expected Behaviour | Outcome |
 |----------|--------------------|---------|
@@ -532,7 +534,7 @@ A full manual testing process was carried out on both the development and deploy
 
 ---
 
-## ✔ 5. Admin Panel Testing
+##  5. Admin Panel Testing
 
 | Feature | Test | Expected Result | Outcome |
 |--------|------|----------------|---------|
@@ -543,7 +545,7 @@ A full manual testing process was carried out on both the development and deploy
 
 ---
 
-## ✔ 6. Code Validation
+##  6. Code Validation
 
 ### **HTML Validation**
 - Checked using W3C Validator  
@@ -580,7 +582,7 @@ The screenshot below shows the flake8 output during testing:
 #### Python Linter Screenshot
 ![Python Linter Screenshot](docs/screenshots/flake8-screenshot.png)
 
-### ⚙️`Setup.cfg` files added
+### `Setup.cfg` files added
 
 A `setup.cfg` file was added to control how **flake8** runs inside the project.  
 Without this configuration, flake8 was scanning the entire virtual environment (`env/`) and reporting hundreds of warnings from third‑party packages that are not part of the application.
@@ -603,7 +605,7 @@ This ensures that code validation reflects the quality of the project code itsel
 
 ---
 
-## ✔ 7. Overall Testing Conclusion
+##  7. Overall Testing Conclusion
 
 All core features of the application were thoroughly tested, including CRUD operations, authentication, navigation, responsiveness, and admin workflows.  
 The application behaves consistently across devices and screen sizes, and no unresolved bugs remain.  
@@ -613,7 +615,7 @@ The deployed version matches the development version in functionality and perfor
 
 ---
 
-## ✔ Security Testing
+##  Security Testing
 
 A series of security checks were performed to ensure the application handles data safely and prevents unauthorised access.
 
@@ -644,15 +646,29 @@ A series of security checks were performed to ensure the application handles dat
 
 ---
 
-## ✔ Lighthouse Testing
+##  Lighthouse Testing
 
 Lighthouse audits were performed on the deployed site to evaluate **Performance**, **Accessibility**, **Best Practices**, and **SEO**.
 
 ### **Results Summary**
-- **Performance:** 85–95  
-- **Accessibility:** 95–100  
-- **Best Practices:** 100  
+- **Performance:** 75  
+- **Accessibility:** 83  
+- **Best Practices:** 77  
 - **SEO:** 100  
+
+### Key Observations
+
+- **Performance:**  
+  The main factors affecting performance were image sizes, render‑blocking resources (Google Fonts), and unused CSS/JS generated by Django templates. These are expected for small projects and do not impact functionality.
+
+- **Accessibility:**  
+  Minor issues were flagged, such as contrast ratios and icon‑only links missing `aria-label` attributes. These were reviewed and addressed where appropriate.
+
+- **Best Practices:**  
+  A few warnings were related to third‑party cookies and security headers controlled by the hosting provider.
+
+- **SEO:**  
+  Achieved a perfect score after adding a meta description and ensuring semantic HTML structure.
 
 ### **Key Notes**
 - Images optimised and compressed  
@@ -661,7 +677,7 @@ Lighthouse audits were performed on the deployed site to evaluate **Performance*
 - No console errors  
 - Mobile layout fully responsive  
 
-Screenshots of Lighthouse reports are included in the `docs/screenshots/` folder.
+![Lighthouse Report Screenshot](assets/images/lighthouse-report.png)
 
 ---
 
@@ -669,7 +685,7 @@ Screenshots of Lighthouse reports are included in the `docs/screenshots/` folder
 
 ---
 
-# 🚀 Deployment
+#  Deployment
 
 The project was deployed using **Render**, a cloud platform that supports Django applications.  
 The deployment process ensures the live site mirrors the development environment and remains stable, secure, and fully functional.
@@ -775,8 +791,101 @@ The deployed version matches the development version in functionality and layout
 
 
 ---
+##  Database Seeding & Deployment Context
 
-# 🚀 Future Enhancements
+This project uses **SQLite** during development and deployment on Render.  
+Render’s environment provides **ephemeral storage**, meaning the SQLite database is **reset on every deploy**.  
+As a result, the application starts with an empty database each time the service rebuilds.
+
+To ensure the application always has initial data available for demonstration and testing, a **manual seeding endpoint** was implemented.
+
+---
+
+##  Initial Approach: `create_default_restaurant.py`
+
+The project originally included a dedicated script, `create_default_restaurant.py`, which followed the **recommended Django pattern** for seeding initial data.  
+This script worked correctly in a local environment and was designed to run after migrations.
+
+However, during deployment on Render, several issues emerged:
+
+- The script executed **before migrations**, causing table‑not‑found errors  
+- Render’s build process triggered imports in a different order than expected  
+- Attempts to automate execution (via signals, `apps.py`, or startup hooks) caused import loops or deployment failures  
+- The database was wiped on every deploy, so the script needed to run repeatedly  
+
+Although the script was technically correct, Render’s ephemeral SQLite environment made it unreliable in production.
+
+---
+
+##  Why the Final Seeding Approach Was Needed
+
+During deployment, Render:
+
+- Rebuilds the container  
+- Recreates the SQLite database file  
+- Runs migrations on a fresh, empty database  
+
+This caused the restaurant list to disappear after each deploy.
+
+Several automated approaches were explored (signals, `apps.py` hooks, management commands, startup scripts), but these either:
+
+- Executed **too early**, before migrations  
+- Introduced **circular imports**  
+- Were incompatible with Render’s build order  
+- Caused deployment crashes  
+
+After testing multiple strategies, the most stable and predictable solution for this environment was a **simple manual seed endpoint**.
+
+This explains the commit history:  
+multiple commits were required to test, validate, and stabilise the deployment process within Render’s constraints.
+
+---
+
+##  How the Seeding Works
+
+A temporary endpoint (`/quick-seed/`) is available to repopulate the database with default restaurants.
+
+This endpoint:
+
+- Checks whether restaurants already exist  
+- Inserts four default restaurants if the database is empty  
+- Returns a confirmation message  
+
+This ensures the application can be restored quickly after each deploy without relying on complex automation.
+
+---
+
+##  When to Run the Seed
+
+After each deploy:
+
+1. Visit `/quick-seed/`  
+2. The database is populated  
+3. Navigate to `/restaurants/` to view the seeded data  
+
+This step is required only because SQLite does not persist data on Render.
+
+---
+
+##  Notes on Deployment & Commit History
+
+Because Render resets the SQLite database on every build, several deployment issues were encountered while attempting to automate seeding.  
+These included:
+
+- Startup code running before migrations  
+- Django signals triggering too early  
+- `apps.py` causing import errors  
+- Management commands not executing in the correct order  
+- Render wiping the DB unexpectedly during rebuilds  
+
+The commit history reflects the process of identifying a reliable solution that works consistently with Render’s ephemeral environment.
+
+The final approach — a lightweight manual seed endpoint — is intentionally simple, stable, and fully compatible with Render’s deployment model.
+
+
+---
+
+#  Future Enhancements
 
 The following features are planned for future versions of BookMyTable:
 
@@ -809,9 +918,15 @@ Enable users to leave ratings and comments after visiting a restaurant.
 ### **7. Google Maps Integration**
 Display restaurant locations visually on a map.
 
+### **8. Database persistent**
+For production use, switching to a persistent database such as PostgreSQL would:
+- Preserve data across deploys  
+- Remove the need for manual seeding  
+- Improve reliability and scalability  
+This is the recommended next step once the project moves beyond development/demo stage.
 ---
 
-# 🛠️ Version Control
+#  Version Control
 
 - Git used throughout development  
 - Small, descriptive commits for each feature    
@@ -821,7 +936,7 @@ Display restaurant locations visually on a map.
 
 ---
 
-# 📦 Installation
+#  Installation
 
 ```bash
 git clone <repo-url>
@@ -833,7 +948,7 @@ python manage.py runserver
 
 ---
 
-# 🛠️ Bugs & Fixes
+#  Bugs & Fixes
 
 ### Static files not loading (Jazzmin)
 - Fixed by correcting `STATIC_URL` to `/static/`  
@@ -863,7 +978,7 @@ python manage.py runserver
 ---
 
 
-# 🏁 Conclusion
+#  Conclusion
 
 BookMyTable is a fully functional, responsive, and user‑friendly restaurant booking system that meets all requirements for a full‑stack Django application. It demonstrates:
 
@@ -890,7 +1005,7 @@ The project is stable, polished, and ready for assessment. It provides real valu
 - Ayşegül - Orangerie & Sakura
 
 
-# 🔗 Live Demo & Project Links
+#  Live Demo & Project Links
 
 ### 🚀 Live Demo  
 The deployed project is available here:  
