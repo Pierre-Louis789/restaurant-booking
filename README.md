@@ -677,7 +677,7 @@ Lighthouse audits were performed on the deployed site to evaluate **Performance*
 - No console errors  
 - Mobile layout fully responsive  
 
-![Lighthouse Report Screenshot](assets/images/lighthouse-report.png)
+![Lighthouse Report Screenshot](docs/screenshots/lighthouse-report.png)
 
 ---
 
@@ -845,6 +845,8 @@ multiple commits were required to test, validate, and stabilise the deployment p
 
 A temporary endpoint (`/quick-seed/`) is available to repopulate the database with default restaurants.
 
+`https://restaurant-booking-qcpf.onrender.com/quick-seed/`
+
 This endpoint:
 
 - Checks whether restaurants already exist  
@@ -879,8 +881,6 @@ These included:
 - Render wiping the DB unexpectedly during rebuilds  
 
 The commit history reflects the process of identifying a reliable solution that works consistently with Render’s ephemeral environment.
-
-The final approach — a lightweight manual seed endpoint — is intentionally simple, stable, and fully compatible with Render’s deployment model.
 
 
 ---
@@ -1009,12 +1009,12 @@ The project is stable, polished, and ready for assessment. It provides real valu
 
 ### 🚀 Live Demo  
 The deployed project is available here:  
-👉 **https://restaurant-booking-qcpf.onrender.com/**
+ **https://restaurant-booking-qcpf.onrender.com/**
 
 ### 📂 GitHub Repository  
 Full source code available on GitHub:  
-👉 **https://github.com/Pierre-Louis789/restaurant-booking**
+ **https://github.com/Pierre-Louis789/restaurant-booking**
 
 ### 👤 Developer Profile  
 Created by Pierre-Louis - view my GitHub profile:  
-👉 **https://github.com/Pierre-Louis789**
+ **https://github.com/Pierre-Louis789**
